@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'commander/import'
+require 'm2prof'
+
+program :name, 'm2prof'
+program :version, M2Prof::VERSION.to_s
+program :description, 'Maven settings.xml Utility'
+
+command :which do |c|
+  c.syntax = 'm2prof which [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.action M2Prof::Commands::Which
+end
+
+command :use do |c|
+  c.syntax = 'm2prof use [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.action M2Prof::Commands::Use
+end
+
+command :list do |c|
+  c.syntax = 'm2prof list [options]'
+  c.summary = ''
+  c.description = ''
+  c.example 'description', 'command example'
+  c.action M2Prof::Commands::List
+end
+
