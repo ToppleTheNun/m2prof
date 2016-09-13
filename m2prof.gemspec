@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/Nunnery/m2prof'
   spec.licenses = ['MIT']
 
+  spec.required_ruby_version = '>= 2.0.0'
+
   glob = lambda { |patterns| spec.files & Dir[*patterns] }
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
