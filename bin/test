@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ "${TRAVIS_PULL_REQUEST:-true}" = "false" ]; then
-    echo 'Running Gemnasium autoupdate...'
-    gemnasium autoupdate run
-else
-    echo 'Running Rake...'
-    bundle exec rake
-fi
+bundle exec rake
+
+#if [ "${TRAVIS_PULL_REQUEST:-true}" = "false" ]; then
+#    echo 'Running Gemnasium autoupdate...'
+#    gemnasium autoupdate run
+#else
+#    echo 'Running Rake...'
+#    bundle exec rake
+#fi
