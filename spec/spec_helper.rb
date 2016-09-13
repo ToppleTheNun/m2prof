@@ -1,6 +1,9 @@
+if ENV['CODECLIMATE_REPO_TOKEN']
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
+end
+
 require 'm2prof'
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
 
