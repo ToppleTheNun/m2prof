@@ -1,0 +1,27 @@
+language: ruby
+rvm:
+- 2.3.0
+before_install:
+- gem install bundler -v 1.10.6
+- sudo sh -c 'echo "deb http://apt.gemnasium.com stable main" > /etc/apt/sources.list.d/gemnasium.list'
+- sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E5CEAB0AC5F1CA2A
+- sudo apt-get update
+- sudo apt-get install gemnasium-toolbelt
+script:
+- 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then gemnasium autoupdate; fi'
+- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bundle exec rake; fi'
+addons:
+  code_climate:
+    repo_token: 733a47af8e6d1ab932950c08679368e2cbdedeafe317dac6b145be61b6f4a1e1
+env:
+  global:
+    GEMNASIUM_TESTSUITE: bundle exec rake
+    GEMNASIUM_PROJECT_SLUG: Nunnery/m2prof
+deploy:
+  provider: rubygems
+  api_key:
+    secure: uQzNpZc04y1b+dURk+UtA8q0if9B9EAgS1D1zEcFZcMPTN9xbnSx/h/kVg2YbETixqdCa4A5G8iyOGDwqtgR28hcytSePip/6kCsEeNVeihPxzGVDfF/n0PFePBabHaU/4r+mO/0BUyoWMZy0LvJrzGtplbXZzMe4YPHhC4mwJ8ALKGZcQQC6i9XEaPrsUREvNMy8QFvnnk5T6PFTLLL3ktHUWZ95+FTqCTC4THxvqaa+cN2lDNsiJYvXLmOWaWSaj5LCfmNkaA/3D5lWJePsinzD8CTSnd3rthlTxZYpOQNxocvQVWJIDteLo853y0ZP30I05bieUSDmF2v2T8j/Ge0uPn7RrcAYyH3gJ5rTsI+IdqiDMEoacLjwDk/LIkYUE4cEy9PvP/f8LLLKDXgEBxX4iF6G37+Wu1hWI++3tS4n+GR5TmW4F5XWZfYuMwK1jlmdHVWvOemPpU7O/KYAk4PAWuY4dqtSvHhkX9hv1r3L3aLCIHRiYt2Kxdt3hX+5mMlL9tvEXcMAwL2LhPHy6WG1h6z0mro3OWOVn7ym6SFY17s2gSyEB4ThGsAox5LuNp02ETUUJcnjfGCe6FQMAtb+cupPG5NSGHHPd2y93j2mxqqeJB6FBXBUXsSwTQ/ka5TQp4OyjIwaSqO45VjFy85HrIriCe0CMnZKxZzIkM=
+  gem: m2prof
+  on:
+    tags: true
+    repo: Nunnery/m2prof
