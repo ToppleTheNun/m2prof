@@ -1,5 +1,13 @@
 = m2prof
 
+{<img src="https://img.shields.io/codeclimate/github/Nunnery/m2prof.svg?style=flat-square" alt="Code Climate" />}[https://codeclimate.com/github/Nunnery/m2prof]
+{<img src="https://img.shields.io/codeclimate/coverage/github/Nunnery/m2prof.svg?style=flat-square" alt="Code Coverage" />}[https://codeclimate.com/github/Nunnery/m2prof/coverage]
+{<img src="https://img.shields.io/travis/Nunnery/m2prof.svg?style=flat-square" alt="Build Status" />}[https://travis-ci.org/Nunnery/m2prof]
+{<img src="https://img.shields.io/gemnasium/Nunnery/m2prof.svg?style=flat-square" alt="Dependency Status" />}[https://gemnasium.com/Nunnery/m2prof]
+{<img src="https://img.shields.io/gem/v/m2prof.svg?style=flat-square" alt="RubyGems" />}[https://rubygems.org/gems/m2prof]
+{<img src="http://inch-ci.org/github/Nunnery/m2prof.svg?branch=master&style=flat-square" alt="Doc Coverage" />}[http://inch-ci.org/github/Nunnery/m2prof]
+
+== Description
 m2prof is a command-line utility for managing different Maven settings.
 
 == Installation
