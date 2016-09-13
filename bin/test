@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "${TRAVIS_PULL_REQUEST:-true}" = "false" ]; then
+    gemnasium autoupdate run
+else
+    bundle exec rake
+fi

@@ -8,8 +8,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get install gemnasium-toolbelt
 script:
-- 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bundle exec rake; fi'
-- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then gemnasium autoupdate run; fi'
+- './bin/test'
 addons:
   code_climate:
     repo_token: 733a47af8e6d1ab932950c08679368e2cbdedeafe317dac6b145be61b6f4a1e1
