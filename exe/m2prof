@@ -9,26 +9,26 @@ program :version, M2Prof::VERSION.to_s
 program :description, 'Maven settings.xml Utility'
 
 command :which do |c|
-  c.syntax = 'm2prof which [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.action M2Prof::Commands::Which
+  c.syntax = 'm2prof which'
+  c.summary = 'Determines and displays the current settings profile.'
+  c.description = 'Checks which settings file is being used currently.'
+  c.action M2Prof::Commands::Which, :handle
 end
 
 command :use do |c|
-  c.syntax = 'm2prof use [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.action M2Prof::Commands::Use
+  c.syntax = 'm2prof use <profile|url> [options]'
+  c.summary = 'Sets the currently used profile to the specified profile.'
+  c.description = 'Symlinks the settings.xml to the given profile.'
+  c.option '--alias', 'Creates a copy of the profile with a given name. Required for URLs.'
+  c.example 'Uses the work profile', 'm2prof use work'
+  c.example 'Downloads and uses the foobar profile', 'm2prof use https://foobar.com/foobar.xml --alias foobar'
+  c.action M2Prof::Commands::Use, :handle
 end
 
 command :list do |c|
-  c.syntax = 'm2prof list [options]'
-  c.summary = ''
-  c.description = ''
-  c.example 'description', 'command example'
-  c.action M2Prof::Commands::List
+  c.syntax = 'm2prof list'
+  c.summary = 'Lists the available settings that can be used.'
+  c.description = 'Searches the Maven home directory for settings.'
+  c.action M2Prof::Commands::List, :handle
 end
 
