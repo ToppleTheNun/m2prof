@@ -14,9 +14,7 @@ m2prof is a command-line utility for managing different Maven settings.
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'm2prof'
-```
+    gem 'm2prof'
 
 And then execute:
 
