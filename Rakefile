@@ -20,8 +20,23 @@ end
 
 require 'rake'
 
+desc 'Removes the tmp and pkg directories'
+task :clean do
+  pwd = Dir.pwd.to_s
+  FileUtils.rm_rf Dir["#{pwd}/tmp"]
+  FileUtils.rm_rf Dir["#{pwd}/pkg"]
+end
+
+desc 'Copies resource files to the tmp directory (for testing purposes)'
+task :prepare do
+  pwd = Dir.pwd.to_s
+  FileUtils.cp_r("#{pwd}/resources/.", "#{pwd}/tmp")
+end
+
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
+
+Rake::Task[:spec].enhance [:clean, :prepare]
 
 task :test    => :spec
 task :default => :spec
