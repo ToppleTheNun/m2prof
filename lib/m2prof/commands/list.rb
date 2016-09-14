@@ -1,3 +1,4 @@
+require 'find'
 require 'm2prof'
 
 module M2Prof
@@ -12,7 +13,15 @@ module M2Prof
       #     to this command
       # @return [void]
       def handle(*args, options)
-
+        settings_dir = M2Prof.m2_settings_home
+        settings_files = Dir["#{settings_dir}/settings*.xml"]
+        settings_files.each { |settings_file|
+          base = File.basename(settings_file)
+          next if base == 'settings.xml' or base == 'settings_default.xml'
+          puts "#{base.sub('settings', '').sub('.xml', '')}"
+        }
+        puts 'default'
+        nil
       end
     end
   end
