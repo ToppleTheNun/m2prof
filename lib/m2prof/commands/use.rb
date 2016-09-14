@@ -1,3 +1,5 @@
+require 'm2prof'
+
 module M2Prof
   module Commands
     # Command to use a specific settings file.
