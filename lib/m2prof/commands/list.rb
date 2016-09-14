@@ -12,6 +12,7 @@ module M2Prof
       # @param options [::Commander::Options] options (flags) passed
       #     to this command
       # @return [void]
+      # rubocop:disable UnusedMethodArgument
       def handle(*args, options)
         settings_dir = M2Prof.m2_settings_home
         settings_files = Dir["#{settings_dir}/settings*.xml"]
@@ -23,6 +24,7 @@ module M2Prof
         puts 'default'
         nil
       end
+      # rubocop:enable UnusedMethodArgument
     end
   end
 end
