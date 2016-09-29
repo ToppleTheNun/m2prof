@@ -8,7 +8,7 @@ module M2Prof
       # Method to handle arguments and options passed
       # to this class by commander.
       # @param args [Array<String>] arguments passed to this command
-      # @param options [::Commander::Options] options (flags) passed
+      # @param options [::Commander::Command::Options] options (flags) passed
       #     to this command
       # @return [void]
       def handle(*args, options)

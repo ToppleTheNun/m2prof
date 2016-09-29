@@ -2,14 +2,13 @@ require 'm2prof'
 
 module M2Prof
   module Commands
-    # Command to determine which settings file is
-    # currently being used.
+    # Command to determine which settings file is currently being used.
     # @author Richard Harrah
     class Which
       # Method to handle arguments and options passed
       # to this class by commander.
       # @param args [Array<String>] arguments passed to this command
-      # @param options [::Commander::Options] options (flags) passed
+      # @param options [::Commander::Command::Options] options (flags) passed
       #     to this command
       # @return [void]
       def handle(*args, options)
@@ -29,7 +28,7 @@ module M2Prof
           return nil
         end
         file_base_name = File.basename(linked_settings_file)
-        puts "#{file_base_name.sub('settings', '').sub('.xml', '').strip}"
+        puts "#{file_base_name.sub('settings', '').sub('.xml', '').strip.sub(/^_/, '').sub(/_$/, '')}"
       end
     end
   end
