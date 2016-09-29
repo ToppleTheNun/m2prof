@@ -1,4 +1,3 @@
-require 'find'
 require 'm2prof'
 
 module M2Prof
