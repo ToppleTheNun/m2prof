@@ -13,7 +13,19 @@ module M2Prof
       #     to this command
       # @return [void]
       def handle(*args, options)
-
+        settings_dir = M2Prof.m2_settings_home
+        settings_file = "#{settings_dir}/settings.xml"
+        unless File.exist?(settings_file)
+          puts 'default'
+          return nil
+        end
+        linked_settings_file = File.readlink(settings_file)
+        unless File.exist?(linked_settings_file)
+          puts 'default'
+          return nil
+        end
+        file_base_name = File.basename(linked_settings_file)
+        puts "#{file_base_name.sub('settings', '').sub('.xml', '').strip}"
       end
     end
   end
