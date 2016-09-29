@@ -3,6 +3,9 @@ if ENV['CODECLIMATE_REPO_TOKEN']
   CodeClimate::TestReporter.start
 end
 
+require 'simplecov'
+SimpleCov.start
+
 require 'm2prof'
 
 RSpec.configure do |config|
