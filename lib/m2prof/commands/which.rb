@@ -28,7 +28,7 @@ module M2Prof
           return nil
         end
         file_base_name = File.basename(linked_settings_file)
-        puts "#{file_base_name.sub('settings', '').sub('.xml', '').strip.sub(/^_/, '').sub(/_$/, '')}"
+        puts "#{M2Prof::Sanitizer.sanitize(file_base_name.sub('settings', '').sub('.xml', '').strip)}"
       end
     end
   end
