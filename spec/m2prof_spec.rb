@@ -1,11 +1,7 @@
 RSpec.describe M2Prof do
-  it 'has a ROOT constant' do
-    expect(M2Prof::ROOT).to_not be_nil
-  end
+  it { should be_const_defined(:ROOT) }
 
-  it 'has a VERSION constant' do
-    expect(M2Prof::VERSION).to_not be_nil
-  end
+  it { should be_const_defined(:VERSION) }
 
   describe '.m2_settings_home' do
     it { should respond_to :m2_settings_home }
