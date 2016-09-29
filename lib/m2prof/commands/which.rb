@@ -19,6 +19,10 @@ module M2Prof
           puts 'default'
           return nil
         end
+        unless File.symlink?(settings_file)
+          puts 'default'
+          return nil
+        end
         linked_settings_file = File.readlink(settings_file)
         unless File.exist?(linked_settings_file)
           puts 'default'
