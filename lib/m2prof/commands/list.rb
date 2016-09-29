@@ -18,7 +18,7 @@ module M2Prof
         settings_files.each { |settings_file|
           base = File.basename(settings_file)
           next if base == 'settings.xml' or base == 'settings_default.xml'
-          puts "#{base.sub('settings', '').sub('.xml', '')}"
+          puts "#{base.sub('settings', '').sub('.xml', '').strip}"
         }
         puts 'default'
         nil
