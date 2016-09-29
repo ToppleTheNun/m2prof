@@ -1,21 +1,21 @@
 language: ruby
 rvm:
 - 2.3.0
-before_install:
-- gem install bundler -v 1.10.6
-- sudo sh -c 'echo "deb http://apt.gemnasium.com stable main" > /etc/apt/sources.list.d/gemnasium.list'
-- sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E5CEAB0AC5F1CA2A
-- sudo apt-get update
-- sudo apt-get install gemnasium-toolbelt
+#before_install:
+#- gem install bundler -v 1.10.6
+#- sudo sh -c 'echo "deb http://apt.gemnasium.com stable main" > /etc/apt/sources.list.d/gemnasium.list'
+#- sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E5CEAB0AC5F1CA2A
+#- sudo apt-get update
+#- sudo apt-get install gemnasium-toolbelt
 script:
 - './bin/test'
 addons:
   code_climate:
     repo_token: 733a47af8e6d1ab932950c08679368e2cbdedeafe317dac6b145be61b6f4a1e1
-env:
-  global:
-    GEMNASIUM_TESTSUITE: bundle exec rake
-    GEMNASIUM_PROJECT_SLUG: Nunnery/m2prof
+#env:
+#  global:
+#    GEMNASIUM_TESTSUITE: bundle exec rake
+#    GEMNASIUM_PROJECT_SLUG: Nunnery/m2prof
 deploy:
   provider: rubygems
   api_key:
