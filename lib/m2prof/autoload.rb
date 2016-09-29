@@ -1,4 +1,5 @@
 # Returns the expanded path to the specified file, auto-prepends source root
+# @param path [String] path to file
 # @return [String] expanded path to file
 # @private
 def __p(path)
@@ -7,4 +8,5 @@ end
 
 module M2Prof
   autoload :Commands, __p('commands')
+  autoload :Sanitizer, __p('utils/sanitizer')
 end
