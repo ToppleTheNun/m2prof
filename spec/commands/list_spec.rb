@@ -17,7 +17,7 @@ RSpec.describe M2Prof::Commands::List do
     end
 
     context 'when no settings.xml exists' do
-      before(:example) do
+      before do
         ENV['M2_SETTINGS_HOME'] = "#{Dir.pwd}/tmp/none"
       end
 
@@ -31,7 +31,7 @@ RSpec.describe M2Prof::Commands::List do
     end
 
     context 'when the default settings.xml exists' do
-      before(:example) do
+      before do
         ENV['M2_SETTINGS_HOME'] = "#{Dir.pwd}/tmp/default"
       end
 
@@ -45,7 +45,7 @@ RSpec.describe M2Prof::Commands::List do
     end
 
     context 'when multiple settings.xml exist' do
-      before(:example) do
+      before do
         ENV['M2_SETTINGS_HOME'] = "#{Dir.pwd}/tmp/multiple"
       end
 
@@ -53,7 +53,7 @@ RSpec.describe M2Prof::Commands::List do
         expect { list.handle(nil, nil) }.to output.to_stdout
       end
 
-      it 'prints "one" and "two" and "three" to stdout' do
+      it 'prints "four", "three", "one", and "two" to stdout' do
         expect { list.handle(nil, nil) }.to output("four\nthree\none\ntwo\ndefault\n").to_stdout
       end
     end
