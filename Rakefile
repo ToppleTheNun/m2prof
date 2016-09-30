@@ -35,15 +35,17 @@ end
 
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new
-
 Rake::Task[:spec].enhance [:clean, :prepare]
-
-task :test    => :spec
-task :default => :spec
 
 require 'yard'
 YARD::Rake::YardocTask.new
-task :doc => :yard
+
+require 'inch/rake'
+Inch::Rake::Suggest.new
+
+task :doc => [:yard, :inch]
+task :test    => :spec
+task :default => [:spec, :doc]
 
 require 'bundler/gem_tasks'
 
