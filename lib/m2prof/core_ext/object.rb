@@ -1,0 +1,1 @@
+require 'm2prof/core_ext/object/blank'
