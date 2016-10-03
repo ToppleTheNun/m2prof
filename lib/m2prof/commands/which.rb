@@ -11,6 +11,7 @@ module M2Prof
       # @param options [::Commander::Command::Options] options (flags) passed
       #     to this command
       # @return [void]
+      # rubocop:disable UnusedMethodArgument
       def handle(*args, options)
         settings_dir = M2Prof.m2_settings_home
         settings_file = "#{settings_dir}/settings.xml"
@@ -26,6 +27,7 @@ module M2Prof
         file_base_name = File.basename(linked_settings_file)
         puts "#{M2Prof::Sanitizer.sanitize(file_base_name.sub('settings', '').sub('.xml', '').strip)}"
       end
+      # rubocop:enable UnusedMethodArgument
     end
   end
 end
