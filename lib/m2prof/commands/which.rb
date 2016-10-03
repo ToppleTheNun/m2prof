@@ -23,10 +23,6 @@ module M2Prof
           return nil
         end
         linked_settings_file = File.readlink(settings_file)
-        unless File.exist?(linked_settings_file)
-          puts 'default'
-          return nil
-        end
         file_base_name = File.basename(linked_settings_file)
         puts "#{M2Prof::Sanitizer.sanitize(file_base_name.sub('settings', '').sub('.xml', '').strip)}"
       end
