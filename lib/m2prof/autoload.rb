@@ -9,4 +9,5 @@ end
 module M2Prof
   autoload :Commands, __p('commands')
   autoload :Sanitizer, __p('utils/sanitizer')
+  autoload :Wizardry, __p('utils/wizardry')
 end
