@@ -13,14 +13,9 @@ module M2Prof
       # @return [void]
       # rubocop:disable UnusedMethodArgument
       def handle(*args, options)
-        settings_dir = M2Prof.m2_settings_home
-        settings_files = Dir["#{settings_dir}/settings*.xml"]
-        settings_files.each { |settings_file|
-          base = File.basename(settings_file)
-          next if base == 'settings.xml' or base == 'settings_default.xml'
-          puts "#{M2Prof::Sanitizer.sanitize(base.sub('settings', '').sub('.xml', '').strip)}"
+        M2Prof::Wizardry.fetch_sanitized_settings.each { |settings|
+          puts settings
         }
-        puts 'default'
         nil
       end
       # rubocop:enable UnusedMethodArgument
