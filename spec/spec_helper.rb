@@ -6,6 +6,7 @@ end
 require 'simplecov'
 SimpleCov.start
 
+require 'rspec/collection_matchers'
 require 'm2prof'
 
 RSpec.configure do |config|
